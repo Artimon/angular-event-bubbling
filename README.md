@@ -13,9 +13,9 @@ Then your click event may have been stopped by event.stopPropagation(); and thus
 - It comes with a directive that handels all your body click callbacks on place.
 - It allows you to intercept your events on DOM-level for elements that shall prevent their own bubbling, but not that of other components.
 
-## HowTo
+### 3 Steps Setup & HowTo
 
-### 1. Include Event Bubbling Module
+**1. Include Event Bubbling Module**
 
 Include event-bubbling.js after angular.js and before your app code as this example shows.
 
@@ -25,7 +25,15 @@ Include event-bubbling.js after angular.js and before your app code as this exam
 <script type='text/javascript' src="app/app.js"></script>
 ```
 
-### 2. Register Core Directive
+**2. Add Event Bubbling To Your App**
+
+Simply add **pads.eventBubbling** to your app depenencies.
+
+```js
+var myApp = angular.module('myApp', ['pads.eventBubbling']);
+```
+
+**3. Register Core Directive**
 
 To register body click event handling add the directive **pads-event-bubbling** to your body tag.
 
@@ -35,7 +43,7 @@ To register body click event handling add the directive **pads-event-bubbling** 
 </body>
 ```
 
-### 3. Usage For Modules
+**4. Usage For Modules**
 
 You are ready to use the event bubbling for your modules.
 

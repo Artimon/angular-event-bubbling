@@ -70,4 +70,4 @@ License
 MIT
 
 
-**Free Software for your personal enjoyment!**
+**Free Software for your enjoyment!**

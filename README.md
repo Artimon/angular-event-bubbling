@@ -20,8 +20,8 @@ Then your click event may have been stopped by event.stopPropagation(); and thus
 Include event-bubbling.js after angular.js and before your app code as this example shows.
 
 ```html
-<script type='text/javascript' src="angular.min.js"></script>
-<script type='text/javascript' src="vendor/event-bubbling.js"></script>
+<script type='text/javascript' src="vendor/angular.min.js"></script>
+<script type='text/javascript' src="vendor/angular-pads/event-bubbling.js"></script>
 <script type='text/javascript' src="app/app.js"></script>
 ```
 

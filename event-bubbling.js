@@ -1,8 +1,12 @@
+/* global angulr */
 
-"use strict";
+(function(angular) {
 
-angular.module('pads.eventBubbling', [])
-	.service('$padsEventBubbling', function () {
+	'use strict';
+
+	var app = angular.module('pads.eventBubbling', []);
+
+	app.service('padsEventBubbling', function () {
 		var service = {},
 			callbacks = {};
 
@@ -79,19 +83,21 @@ angular.module('pads.eventBubbling', [])
 		};
 
 		return service;
-	})
-	.directive('padsEventBubbling', function ($padsEventBubbling) {
+	});
+
+	app.directive('padsEventBubbling', function (padsEventBubbling) {
 		return {
 			link: function ($scope, $element) {
-				$element.on('click', $padsEventBubbling.trigger);
+				$element.on('click', padsEventBubbling.trigger);
 			}
 		};
-	})
-	.directive('padsEventBubblingIntercept', function ($padsEventBubbling) {
+	});
+
+	app.directive('padsEventBubblingIntercept', function (padsEventBubbling) {
 		return {
 			link: function ($scope, $element, attributes) {
 				function clickCallback() {
-					$padsEventBubbling.intercept(attributes.padsEventBubblingIntercept);
+					padsEventBubbling.intercept(attributes.padsEventBubblingIntercept);
 				}
 
 				$element.on('click', clickCallback);
@@ -102,3 +108,4 @@ angular.module('pads.eventBubbling', [])
 			}
 		};
 	});
+})(angular);

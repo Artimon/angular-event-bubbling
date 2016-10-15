@@ -43,22 +43,22 @@ To register body click event handling add the directive **pads-event-bubbling** 
 </body>
 ```
 
-**4. Usage For Modules**
+**Usage**
 
 You are ready to use the event bubbling for your modules.
 
 Expect you have a navigation that shall close when clicking somewhere on the page except when clicking inside the navigation to open further layers for example.
 
-Your NavigationCtrl can use the **$padsEventBubbling** service to bind/unbind events.
+Your NavigationCtrl can use the **padsEventBubbling** service to bind/unbind events.
 
 ```js
-angular.module('myApp').controller('NavigationCtrl', function ($scope, $padsEventBubbling) {
+angular.module('myApp').controller('NavigationCtrl', function ($scope, padsEventBubbling) {
 	// Register body click for closing the navigation under the namespace "navigation.close".
-	$padsEventBubbling.on('navigation.close', $scope.close); // $scope.close() is your close function.
+	padsEventBubbling.on('navigation.close', $scope.close); // $scope.close() is your close function.
 
 	$scope.$on("$destroy", function () {
 		// We reuse the chosen namespace to release the handler on scope destruction.
-		$padsEventBubbling.off('navigation.close');
+		padsEventBubbling.off('navigation.close');
 	});
 });
 ```
